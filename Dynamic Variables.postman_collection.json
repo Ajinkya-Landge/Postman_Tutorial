@@ -1,0 +1,113 @@
+{
+	"info": {
+		"_postman_id": "bebfd74b-d83a-4f47-aefb-3c577598c7ab",
+		"name": "Dynamic Variables",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "PostRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"{{$randomFirstName}}\",\r\n    \"job\": \"{{$randomJobTitle}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Validation of Response code\"] = responseCode.code==200;\r",
+							"\r",
+							"pm.test(\"Validating the Response Code is 200\",function()\r",
+							"{\r",
+							"        pm.response.to.have.status(200);\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body matches string\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"janet.weaver@reqres.in\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"Eve\");\r",
+							"    pm.expect(pm.response.text()).to.include(\"Morris\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Expecting Eve as Firstname at data[3]\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.data[3].first_name).to.eql('Eve');\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Cache-Control is present\", function () {\r",
+							"    pm.response.to.have.header(\"Cache-Control\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful Get request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 202]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name has string\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

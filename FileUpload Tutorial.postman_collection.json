@@ -1,0 +1,45 @@
+{
+	"info": {
+		"_postman_id": "5bf3fafa-44ef-448d-a323-976004a9d8a3",
+		"name": "FileUpload Tutorial",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "PostToUploadFile",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/E:/Postman/FileUpload/FileUpload.txt"
+						},
+						{
+							"key": "data",
+							"value": "{{\"name\":\"Ajinkya\"}}",
+							"contentType": "application/json",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "https://httpbin.org/post",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

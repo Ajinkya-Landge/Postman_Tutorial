@@ -1,0 +1,95 @@
+{
+	"info": {
+		"_postman_id": "1b17ad4a-9e90-4b94-81f7-3376968907a0",
+		"name": "API Key & 0Auth 2.0",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "API Key Auth",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "c9bc0f4908b6cda1aee48227da730865",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "appid",
+							"type": "string"
+						},
+						{
+							"key": "in",
+							"value": "query",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.openweathermap.org/data/2.5/weather?q=Pune",
+					"protocol": "https",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "q",
+							"value": "Pune"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "{{value}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "{{key}}",
+				"type": "string"
+			},
+			{
+				"key": "in",
+				"value": "query",
+				"type": "string"
+			}
+		]
+	},
+	"variable": [
+		{
+			"key": "value",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "key",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "in",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

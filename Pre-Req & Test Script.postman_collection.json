@@ -1,0 +1,136 @@
+{
+	"info": {
+		"_postman_id": "143861f7-aa69-468d-a7fd-c30879caef07",
+		"name": "Pre-Req & Test Script",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "GetReq-1",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"console.log(\"This is Pre-Request Script for :\",pm.info.requestName);"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"console.log(\"This is Test Script for :\",pm.info.requestName);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetReq-2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users/",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TestCases",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Validation of Response code\"] = responseCode.code==200;\r",
+							"\r",
+							"tests[\"Validating the String\"] = responseBody.has(\"Michael\");\r",
+							"\r",
+							"var jsonRes = JSON.parse(responseBody);\r",
+							"tests[\"Validating Id Of Lindsey\"] = jsonRes.data[1].id==8;\r",
+							"tests[\"Validating Last name Of Michael as Lawson\"] =jsonRes.data[0].last_name==\"Lawson\";\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"This is a collection level Pre-Request Script for:\",pm.info.requestName);"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"console.log(\"This is a collection level Test Script for:\",pm.info.requestName);"
+				]
+			}
+		}
+	]
+}

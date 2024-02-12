@@ -1,0 +1,80 @@
+{
+	"info": {
+		"_postman_id": "1685d372-3cb7-4e70-8de3-6f9b91b06d2f",
+		"name": "JSON Schema Validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "JsonSchemaValidation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var schema = \r",
+							"{\r",
+							"    \"$schema\": \"https://json-schema.org/draft/2019-09/schema\",\r",
+							"    \"$id\": \"http://example.com/example.json\",\r",
+							"    \"type\": \"object\",\r",
+							"    \"default\": {},\r",
+							"    \"title\": \"Root Schema\",\r",
+							"    \"required\": [\r",
+							"        \"token\"\r",
+							"    ],\r",
+							"    \"properties\": {\r",
+							"        \"token\": {\r",
+							"            \"type\": \"string\",\r",
+							"            \"default\": \"\",\r",
+							"            \"title\": \"The token Schema\",\r",
+							"            \"examples\": [\r",
+							"                \"abc123\"\r",
+							"            ]\r",
+							"        }\r",
+							"    },\r",
+							"    \"examples\": [{\r",
+							"        \"token\": \"abc123\"\r",
+							"    }]\r",
+							"};\r",
+							"var ActualJsonData = pm.response.json();\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(ActualJsonData, schema)).to.be.true;\r",
+							"    //pm.response.to.have.jsonSchema(schema);//Optional Method\r",
+							"   \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\" : \"admin\",\r\n    \"password\" : \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://restful-booker.herokuapp.com/auth",
+					"protocol": "https",
+					"host": [
+						"restful-booker",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

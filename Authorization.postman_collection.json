@@ -1,0 +1,150 @@
+{
+	"info": {
+		"_postman_id": "5f01f948-81a8-4ab0-9abb-26e5aea5759f",
+		"name": "Authorization",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "basic-auth",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "123",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "Ajinkya",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://httpbin.org/basic-auth/Ajinkya/123",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"basic-auth",
+						"Ajinkya",
+						"123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "basic-auth2",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "password",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "postman",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://postman-echo.com/basic-auth",
+					"protocol": "http",
+					"host": [
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"basic-auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BearerToken-1",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "TestToken",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://httpbin.org/bearer",
+					"protocol": "https",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"bearer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "BearerToken-2",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "9827db7a9696c03919ff79c828e9ae24e9c7fcab906606dbfe1fb745025d011b",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Ajinkya Landge\",\r\n    \"gender\":\"Male\",\r\n    \"email\":\"Aj123@gmail.com\",\r\n    \"status\":\"Active\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

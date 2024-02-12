@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "69927975-38d3-4dba-96c2-e0b52fab71fd",
+		"name": "Advanced Test Cases",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "GetRequest",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//parse Json Data in Response\r",
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Script1\",function()\r",
+							"{\r",
+							"        // Validating Avatar    \r",
+							"        pm.expect(jsonData.data[1].avatar).to.eql(\"https://reqres.in/img/faces/8-image.jpg\");    \r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"Script2\",function()\r",
+							"{\r",
+							"        //Validating Support URl\r",
+							"        pm.expect(jsonData.support.url).to.eql(\"https://reqres.in/#support-heading\");\r",
+							"}\r",
+							");\r",
+							"\r",
+							"pm.test(\"Count & Log Ids\",function()\r",
+							"{\r",
+							"    console.log('Total No Of Ids :-',jsonData.data.length);\r",
+							"\r",
+							"    for(id=0 ;id<jsonData.data.length;id++)\r",
+							"    {\r",
+							"        console.log(jsonData.data[id].id,jsonData.data[id].first_name,jsonData.data[id].last_name);\r",
+							"      \r",
+							"    }\r",
+							"}\r",
+							");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://reqres.in/api/users?page=2",
+					"protocol": "https",
+					"host": [
+						"reqres",
+						"in"
+					],
+					"path": [
+						"api",
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

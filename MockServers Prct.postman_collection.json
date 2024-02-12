@@ -1,0 +1,100 @@
+{
+	"info": {
+		"_postman_id": "e48d9803-a290-49ce-b5b8-74a23dae6c7c",
+		"name": "MockServers Prct",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25209740"
+	},
+	"item": [
+		{
+			"name": "GetRequest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7.mock.pstmn.io/Get",
+					"protocol": "https",
+					"host": [
+						"4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"Get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PostRequest",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "https://4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7.mock.pstmn.io/Post",
+					"protocol": "https",
+					"host": [
+						"4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"Post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7.mock.pstmn.io/GetinJson",
+					"protocol": "https",
+					"host": [
+						"4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"GetinJson"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Getuser",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7.mock.pstmn.io/user?id=1",
+					"protocol": "https",
+					"host": [
+						"4c482ab7-1fb2-4ca4-a74a-9d7af0c7a9b7",
+						"mock",
+						"pstmn",
+						"io"
+					],
+					"path": [
+						"user"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
